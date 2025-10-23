@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'jenkins-agent'}
 
+    environment {
+    PATH = "/usr/libexec/docker/cli-plugins:$PATH"
+    }
+
     stages{
         stage('Debug PATH') {
         steps {
