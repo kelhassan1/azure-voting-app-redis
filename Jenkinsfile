@@ -1,10 +1,6 @@
 pipeline {
     agent { label 'jenkins-agent'}
 
-    environment {
-    PATH = "/usr/libexec/docker/cli-plugins:$PATH"
-    }
-
     stages{
         stage('Debug PATH') {
         steps {
@@ -21,7 +17,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps{
-                sh 'docker compose build'
+                sh '/usr/bin/docker compose build'
             }
         }
     }
